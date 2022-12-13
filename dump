@@ -1,0 +1,97 @@
+DIGIT       [0-9]
+LETTER      [a-zA-Z]
+ID          {LETTER}({LETTER}|{DIGIT})*
+
+%%
+
+"class"     return CLASS;
+"else"      return ELSE;
+"fi"        return FI;
+"if"        return IF;
+"in"        return IN;
+"inherits"  return INHERITS;
+"isvoid"    return ISVOID;
+"let"       return LET;
+"loop"      return LOOP;
+"pool"      return POOL;
+"then"      return THEN;
+"while"     return WHILE;
+"case"      return CASE;
+"esac"      return ESAC;
+"new"       return NEW;
+"of"        return OF;
+"not"       return NOT;
+
+{ID}        return ID;
+
+[ \t\n]+    /* ignore whitespace */
+.           return yytext[0];
+
+
+
+
+
+
+
+
+%{
+#include <stdio.h>
+#include <stdlib.h>
+
+int yylex(void);
+
+void yyerror(char *msg)
+{
+printf("Erro na linha %d: %s\n", yylineno, msg);
+}
+%}
+
+digit [0-9]
+letter [A-Za-z]
+id letter(letter|digit)*
+int constant digit+
+
+%%
+
+"class" { return CLASS; }
+"else" { return ELSE; }
+"fi" { return FI; }
+"if" { return IF; }
+"in" { return IN; }
+"inherits" { return INHERITS; }
+"isvoid" { return ISVOID; }
+"let" { return LET; }
+"loop" { return LOOP; }
+"pool" { return POOL; }
+"then" { return THEN; }
+"while" { return WHILE; }
+"case" { return CASE; }
+"esac" { return ESAC; }
+"new" { return NEW; }
+"of" { return OF; }
+"not" { return NOT; }
+
+"+" { return ADD; }
+"-" { return SUB; }
+"*" { return MULT; }
+"/" { return DIV; }
+"=" { return ASSIGN; }
+"<" { return LT; }
+"<=" { return LTE; }
+"<-" { return LEFTARROW; }
+"." { return DOT; }
+"~" { return TILDE; }
+":" { return COLON; }
+"," { return COMMA; }
+";" { return SEMI; }
+"{" { return LBRACE; }
+"}" { return RBRACE; }
+"(" { return LPAREN; }
+")" { return RPAREN; }
+"@" { return AT; }
+
+{id} { return ID; }
+{int constant} { return INT_CONST; }
+
+[ \t\n] ;
+. { yyerror("token invá
