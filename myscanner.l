@@ -8,40 +8,40 @@
 [A-Z]*									return TYPE;
 "<-"									return ASSIGN;
 
-"class" { return CLASS; }
-"else" { return ELSE; }
-"fi" { return FI; }
-"if" { return IF; }
-"in" { return IN; }
-"inherits" { return INHERITS; }
-"isvoid" { return ISVOID; }
-"let" { return LET; }
-"loop" { return LOOP; }
-"pool" { return POOL; }
-"then" { return THEN; }
-"while" { return WHILE; }
-"case" { return CASE; }
-"esac" { return ESAC; }
-"new" { return NEW; }
-"of" { return OF; }
-"not" { return NOT; }
+"class" 								return CLASS;
+"else" 									return ELSE;
+"fi" 									return FI;
+"if" 									return IF;
+"in" 									return IN;
+"inherits"								return INHERITS;
+"isvoid"								return ISVOID;
+"let" 									return LET;
+"loop"									return LOOP;
+"pool"									return POOL;
+"then" 									return THEN;
+"while"									return WHILE;
+"case"									return CASE;
+"esac"									return ESAC;
+"new" 									return NEW;
+"of"									return OF;
+"not"									return NOT;
 
-"+" { return ADD; }
+"+"										return PLUS;
 "-" { return SUB; }
-"*" { return MULT; }
-"/" { return DIV; }
-"=" { return ASSIGN; }
-"<" { return LT; }
-"<=" { return LTE; }
-"." { return DOT; }
-"~" { return TILDE; }
-":" { return COLON; }
-"," { return COMMA; }
-";" { return SEMI; }
-"{" { return LBRACE; }
-"}" { return RBRACE; }
+"*"										return TIMES;
+"/"										return OVER;
+"=" 									return EQUAL;
+"<="									return LESS_EQUAL;
+"."										return DOT;
+"~"										return TILDE;
+":"										return COLON;
+"," 									return COMMA;
+";"										return SEMI_COLON;
+"{" 									return LEFT_BRACKETS;
+"}"										return RIGHT_BRACKETS;
 "(" { return LPAREN; }
-")" { return RPAREN; }
+")"										return RIGHT_PARENTHESIS;
+"=>"									return BRANCH;
 
 [ \t\n]+
 .					printf("unexpected character\n");
