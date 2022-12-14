@@ -27,7 +27,7 @@
 "not"									return NOT;
 
 "+"										return PLUS;
-"-" { return SUB; }
+"-" 								    return MINUS;
 "*"										return TIMES;
 "/"										return OVER;
 "=" 									return EQUAL;
@@ -39,7 +39,7 @@
 ";"										return SEMI_COLON;
 "{" 									return LEFT_BRACKETS;
 "}"										return RIGHT_BRACKETS;
-"(" { return LPAREN; }
+"(" 									return LEFT_PARENTHESIS;
 ")"										return RIGHT_PARENTHESIS;
 "=>"									return BRANCH;
 

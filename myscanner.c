@@ -14,7 +14,7 @@ int main(void)
 
 	ntoken = yylex();
 	while(ntoken) {
-		printf("%d \n", ntoken);
+		printf("TYPE: %d\n VALUE: %s\n", ntoken, yytext);
 		ntoken = yylex();
 	}
 	return 0;

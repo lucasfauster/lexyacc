@@ -1,1 +1,2 @@
-eu <- INTEGER
+eu <- INTEGER isvoid
+case 5 + 2 = "vinte"
