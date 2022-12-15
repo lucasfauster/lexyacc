@@ -1,8 +1,6 @@
-myscanner: myscanner.c myscanner.h lex.yy.c
-	cc myscanner.c lex.yy.c -ll -o myscanner 
-
-lex.yy.c: myscanner.l
+myscanner:
 	lex myscanner.l
+	gcc myscanner.c lex.yy.c -ll -o myscanner 
 
 clean:
 	rm myscanner

@@ -4,15 +4,12 @@
 %option nounput yylineno
 
 %%
-[a-z]*								    return ID;
-[A-Z]*									return TYPE;
-"<-"									return ASSIGN;
-
+"in" 									return IN;
 "class" 								return CLASS;
+"<-"									return ASSIGN;
 "else" 									return ELSE;
 "fi" 									return FI;
 "if" 									return IF;
-"in" 									return IN;
 "inherits"								return INHERITS;
 "isvoid"								return ISVOID;
 "let" 									return LET;
@@ -25,7 +22,6 @@
 "new" 									return NEW;
 "of"									return OF;
 "not"									return NOT;
-
 "+"										return PLUS;
 "-" 								    return MINUS;
 "*"										return TIMES;
@@ -42,7 +38,10 @@
 "(" 									return LEFT_PARENTHESIS;
 ")"										return RIGHT_PARENTHESIS;
 "=>"									return BRANCH;
-
+\"[^"\n]*["\n]							return STRING;
+[0-9]+									return INTEGER;
+[a-z][a-zA-Z0-9_]*						return ID;
+[A-Z][a-zA-Z0-9_]*						return TYPE;
 [ \t\n]+
 .					printf("unexpected character\n");
 
